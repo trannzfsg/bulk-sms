@@ -1,8 +1,8 @@
 'use strict';
 
-const accountSid = 'ACdc1aa58ce4ca14a85f84c00eb3b4a560';
-const authToken = 'ae38f4dfde321e51a01c9b82483c4e68';
-const fromNumber = 'MG8b09f57f96cb1c10965ffd21db86deb0';
+const accountSid = '';
+const authToken = '';
+const fromNumber = '';
 const countryCode = '+64';
 const twilioClient = require('twilio')(accountSid, authToken);
 
