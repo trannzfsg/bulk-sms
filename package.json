@@ -1,0 +1,10 @@
+{
+  "name": "bulk-sms",
+  "version": "0.0.1",
+  "description": "send bulk sms with twilio api",
+  "license": "UNLICENSED",
+  "private": "false",
+  "dependencies": {
+    "twilio": "^3.19.2"
+  }
+}
