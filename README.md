@@ -1,6 +1,9 @@
 # bulk-sms
-Send bulk sms with twilio API. Developed using serverless framework https://serverless.com. Deploy to AWS lambda for usage. Requires Twilio account with Programmable SMS service set up.
+Send bulk sms with twilio API, and simple UI to use the API. 
 
+Developed using serverless framework https://serverless.com. Deploy to AWS lambda for usage. Requires Twilio account with Programmable SMS service set up.
+
+# API
 **to deploy**
 
 - AWS Server manager / parameter store: set up 3 variables as stated in serverless.yml. Environment variable values requires Twilio account set up, requires Account Sid, Account Auth Token and Programmable SMS Service ID
@@ -22,3 +25,11 @@ curl -X POST \
 	"message":"test",
 	"numbers":"+64211234567,+64217654321"
 }'
+
+# Webpage
+**to deploy**
+- Copy index.html into a s3 bucket
+- Set up s3 to be static website and use cloudfront if needed, remember to set up bucket default page, and policy to allow public acess if not using cloudfront.
+
+**to run**
+Enter bucket public URL into any browser

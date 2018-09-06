@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Send bulk SMS</title>
+        <style>
+            body{
+                padding:20px 100px;
+            }
+            #phonenumbers{
+                width:700px;
+                height:100px;
+            }
+            #message{
+                width:700px;
+                height:70px;
+            }
+            #sendbtn{
+                width:200px;
+                height:30px;
+            }
+        </style>
+        <script>
+            function sendnow(){
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://tvnxtqc4cl.execute-api.ap-southeast-2.amazonaws.com/dev/sendsms');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    document.getElementById('response').innerHTML = xhr.responseText;
+                };
+                var postdata = {
+                    message: document.getElementById('message').value,
+                    numbers: document.getElementById('phonenumbers').value
+                }
+                xhr.send(JSON.stringify(postdata));
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            Text message
+            <br />
+            <textarea id="message"></textarea>
+            <br /><br />
+            Phone numbers - must to be comma separted and NZ numbers only:
+            <br />
+            <textarea id="phonenumbers"></textarea>
+            <br /><br />
+            Please make sure you have enough credit in twilio account. Each message (phone number) costs $0.10 USD
+            <br />
+            <button id="sendbtn" onclick="sendnow()">SEND NOW</button>
+            <br /><br />
+            Send result:
+            <div id="response"></div>
+        </div>
+    </body>
+</html>
