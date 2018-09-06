@@ -16,7 +16,7 @@ module.exports.main = function(event, context, callback) {
 
     //tidy up numbers
     for (var i in numbers) {
-        var number = numbers[i].trim();
+        var number = numbers[i].replace(/\s/g, '').replace(/\-/g, '');
         if (number.length>0){
             //tidy up number with country code
             if (number.indexOf('0')==0)
