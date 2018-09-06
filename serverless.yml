@@ -16,6 +16,10 @@ package:
 functions:
   main:
     handler: handler.main
+    environment:
+      accountSid: ${ssm:bulksms-accountSid~true} #account sid
+      authToken: ${ssm:bulksms-authToken~true} #account auth token - SECRET!!
+      fromNumber: ${ssm:bulksms-fromNumber~true} #service id
     events:
       - http:
           method: post

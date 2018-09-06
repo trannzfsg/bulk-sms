@@ -1,8 +1,8 @@
 'use strict';
 
-const accountSid = '';
-const authToken = '';
-const fromNumber = '';
+const accountSid = process.env.accountSid;
+const authToken = process.env.authToken;
+const fromNumber = process.env.fromNumber;
 const countryCode = '+64';
 const twilioClient = require('twilio')(accountSid, authToken);
 
