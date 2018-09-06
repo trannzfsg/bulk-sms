@@ -1,14 +1,11 @@
 # bulk-sms
-Send bulk sms with twilio API
-
-**requires**
-
-- AWS Server manager / parameter store: set up 3 variables as stated in serverless.yml
-- Locally store credentials file that contains access key/secret to deploy cloud formation templates (refer to serverless.com documentation)
+Send bulk sms with twilio API. Developed using serverless framework https://serverless.com. Deploy to AWS lambda for usage. Requires Twilio account with Programmable SMS service set up.
 
 **to deploy**
 
-sls deploy -v
+- AWS Server manager / parameter store: set up 3 variables as stated in serverless.yml. Environment variable values requires Twilio account set up, requires Account Sid, Account Auth Token and Programmable SMS Service ID
+- Locally store credentials file that contains access key/secret to deploy cloud formation templates (refer to serverless.com documentation)
+- run serverless command `sls deploy -v`
 
 **to run**
 
