@@ -28,6 +28,16 @@ module.exports.main = function(event, context, callback) {
     }
     console.log(tidynumbers);
 
+    //initialise response
+    var response = {
+        statusCode: null,
+        headers: {
+            "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+            "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+        },
+        body: null
+    };
+
     //queue all messages and send
     Promise.all(
         tidynumbers.map(function(number) {
@@ -42,24 +52,16 @@ module.exports.main = function(event, context, callback) {
         console.log('Messages all queued');
 
         //initialise response
-        var response = {
-            statusCode: 200,
-            headers: {
-            },
-            body: JSON.stringify({message:'successfully queued ' + messages.length + ' message'})
-        };
+        response.statusCode = 200;
+        response.body = JSON.stringify({message:'successfully queued ' + messages.length + ' message'});
         callback(null, response);
     })
     .catch(function(err) { 
         console.error(err);
 
         //initialise response
-        var response = {
-            statusCode: 400,
-            headers: {
-            },
-            body: JSON.stringify({message:'error sending messages'})
-        };
+        response.statusCode = 400;
+        response.body = JSON.stringify({message:'error sending messages'});
         callback(null, response);
     });
 };
