@@ -5,6 +5,6 @@
   "license": "UNLICENSED",
   "private": "false",
   "dependencies": {
-    "twilio": "^3.19.2"
+    "twilio": "^3.30.0"
   }
 }
